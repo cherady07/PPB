@@ -9,213 +9,211 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Task Management Layout',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        useMaterial3: true,
-      ),
-      home: const DashboardPage(),
+      home: PaymentScreen(),
     );
   }
 }
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class PaymentScreen extends StatelessWidget {
+  const PaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // List menu dengan penyesuaian warna & ikon agar mirip gambar asli
+    final List<Map<String, dynamic>> menuItems = [
+      {'icon': Icons.water, 'label': 'Water', 'color': const Color(0xFF4FC3F7)},
+      {
+        'icon': Icons.lightbulb,
+        'label': 'Electricity',
+        'color': const Color(0xFFFFB300)
+      },
+      {
+        'icon': Icons.local_fire_department,
+        'label': 'Gas',
+        'color': const Color(0xFFFF5722)
+      },
+      {
+        'icon': Icons.shopping_bag,
+        'label': 'Shopping',
+        'color': const Color(0xFFE91E63)
+      },
+      {
+        'icon': Icons.phone_android,
+        'label': 'Phone',
+        'color': const Color(0xFF1565C0)
+      },
+      {
+        'icon': Icons.credit_card,
+        'label': 'Credit Card',
+        'color': const Color(0xFF00796B)
+      },
+      {
+        'icon': Icons.shield,
+        'label': 'Insurance',
+        'color': const Color(0xFF00695C)
+      },
+      {
+        'icon': Icons.home,
+        'label': 'Mortgage',
+        'color': const Color(0xFF7E57C2)
+      },
+      {
+        'icon': Icons.description,
+        'label': 'Other Bills',
+        'color': const Color(0xFF546E7A)
+      },
+    ];
+
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: const Text(
-          'Workspace Dashboard',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: Colors.indigo,
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications, color: Colors.white),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // 1. Widget Layout: Banner Selamat Datang (Container & Column)
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.indigo[400],
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // ================= HEADER SECTION =================
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+              color: const Color(0xFF1A447B), // Warna biru navy
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.menu,
+                            color: Colors.white, size: 28),
+                        onPressed: () {},
+                      ),
+                      const Text(
+                        'PAYMENT',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.5,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.settings,
+                            color: Colors.white, size: 26),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 30),
+                  Row(
+                    children: [
+                      const SizedBox(width: 12),
+                      const CircleAvatar(
+                        radius: 36,
+                        backgroundColor: Colors.white,
+                        child: Icon(
+                          Icons.person,
+                          size: 50,
+                          color: Color(0xFF1A447B),
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'BALANCE',
+                            style: TextStyle(
+                              color: Colors.blue[200],
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 1.0,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          const Text(
+                            '\$4,180.20',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                ],
+              ),
+            ),
+
+            // ================= GRID MENU SECTION =================
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24, 30, 24, 10),
+                child: Column(
                   children: [
-                    Text(
-                      'Halo, Selamat Datang!',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: GridView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          childAspectRatio: 0.85,
+                        ),
+                        itemCount: menuItems.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                  color: menuItems[index]['color'],
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  menuItems[index]['icon'],
+                                  color: Colors.white,
+                                  size: 32,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                menuItems[index]['label'],
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Mari selesaikan project dan tugasmu hari ini.',
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'more >>',
+                          style: TextStyle(
+                            color: Color(0xFF29B6F6),
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 24),
-
-              // Kategori Judul
-              const Text(
-                'Status Project Utama',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 12),
-
-              // 2. Widget Layout: Grid Statistik (GridView.count & Row)
-              GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  _buildStatCard(
-                      'In Progress', '5 Project', Colors.orange, Icons.loop),
-                  _buildStatCard(
-                      'Completed', '12 Done', Colors.green, Icons.check_circle),
-                  _buildStatCard(
-                      'Pending', '2 On Hold', Colors.red, Icons.pause_circle),
-                  _buildStatCard(
-                      'Total Tasks', '24 Tasks', Colors.blue, Icons.assignment),
-                ],
-              ),
-              const SizedBox(height: 24),
-
-              // Kategori Judul 2
-              const Text(
-                'Daftar Tugas Terbaru',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 12),
-
-              // 3. Widget Layout: List Tugas (ListView.builder didalam Column)
-              ListView(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  _buildTaskItem(
-                      'Selesaikan CRUD Laravel API', 'Deadline: Besok', 'High'),
-                  _buildTaskItem('Setup UI Flutter dengan GridView',
-                      'Deadline: 3 Hari', 'Medium'),
-                  _buildTaskItem(
-                      'Push Repository ke GitHub', 'Deadline: 5 Hari', 'Low'),
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ),
-    );
-  }
-
-  // Helper Method untuk membuat Card Grid
-  Widget _buildStatCard(
-      String title, String count, Color color, IconData icon) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            backgroundColor: color.withOpacity(0.1),
-            child: Icon(icon, color: color),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            count,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            title,
-            style: TextStyle(color: Colors.grey[600], fontSize: 14),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Helper Method untuk membuat Item List Tugas
-  Widget _buildTaskItem(String taskName, String deadline, String priority) {
-    Color priorityColor = Colors.green;
-    if (priority == 'High') priorityColor = Colors.red;
-    if (priority == 'Medium') priorityColor = Colors.orange;
-
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                taskName,
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                deadline,
-                style: TextStyle(color: Colors.grey[500], fontSize: 13),
-              ),
-            ],
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: priorityColor.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Text(
-              priority,
-              style: TextStyle(
-                  color: priorityColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12),
-            ),
-          ),
-        ],
       ),
     );
   }
