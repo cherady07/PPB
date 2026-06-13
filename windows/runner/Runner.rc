@@ -90,12 +90,21 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
+<<<<<<< HEAD
             VALUE "FileDescription", "praktikum_ppb" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "praktikum_ppb" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
             VALUE "OriginalFilename", "praktikum_ppb.exe" "\0"
             VALUE "ProductName", "praktikum_ppb" "\0"
+=======
+            VALUE "FileDescription", "flutter_application3" "\0"
+            VALUE "FileVersion", VERSION_AS_STRING "\0"
+            VALUE "InternalName", "flutter_application3" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
+            VALUE "OriginalFilename", "flutter_application3.exe" "\0"
+            VALUE "ProductName", "flutter_application3" "\0"
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

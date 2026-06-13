@@ -5,6 +5,7 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+<<<<<<< HEAD
       <PreActions>
          <ExecutionAction
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
@@ -23,6 +24,8 @@
             </ActionContent>
          </ExecutionAction>
       </PreActions>
+=======
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -33,7 +36,11 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
                BuildableName = "praktikum_ppb.app"
+=======
+               BuildableName = "flutter_application3.app"
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
                BlueprintName = "Runner"
                ReferencedContainer = "container:Runner.xcodeproj">
             </BuildableReference>
@@ -49,7 +56,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "praktikum_ppb.app"
+=======
+            BuildableName = "flutter_application3.app"
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -77,14 +88,21 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
+<<<<<<< HEAD
       enableGPUValidationMode = "1"
+=======
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "praktikum_ppb.app"
+=======
+            BuildableName = "flutter_application3.app"
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -101,7 +119,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+<<<<<<< HEAD
             BuildableName = "praktikum_ppb.app"
+=======
+            BuildableName = "flutter_application3.app"
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>

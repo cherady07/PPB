@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "name": "praktikum_ppb",
     "short_name": "praktikum_ppb",
+=======
+    "name": "flutter_application3",
+    "short_name": "flutter_application3",
+>>>>>>> 2e6d373879b1a34bc1dad04a141007987e36a25b
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
